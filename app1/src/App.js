@@ -1,42 +1,61 @@
 import React from "react";
-// import PropTypes from 'prop-types';
+import axios from "axios";
+import Movie from "./Movies";
 
 class App extends React.Component {
-  constructor(args){
-    super();
-    console.log('constructor exec 1st in page once');
-  }
   state = {
-    count: 0,
+    isLoding: true,
+    movies: [],
   };
-  add = () => {
-    console.log("add");
-    // this.state.count=1; //err
-    this.setState(curr=>({ count:curr.count + 1 }));
-    // this.setState({ count: this.state.count + 1 }); //상태 의존적으로 성능 저하
+  getData = async () => {
+    const {
+      data: {
+        data: { movies },
+      },
+    } = await axios.get(
+      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+    );
+    // const res = = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    // console.log(res.data.data.movies);
+    // console.log(movies);
+    // this.setState({movies:movies}) //can shorter like below
+    this.setState({ movies, isLoading: false });
   };
-  minus = () => {
-    console.log("minus");
-    // this.state.count=-1; //err
-    // this.setState({ count: this.state.count-1 });
-    this.setState(curr=>({ count:curr.count - 1 }));
-  };
-  componentDidMount(){
-    console.log('componentDidMount exec 3rd in page once');
-  }
-  componentDidUpdate(){
-    console.log('componentDidUpdate not exec 3rd, but every functioning after render')
-  }
-  componentWillUnmount(){
-    console.log('componentWillUnmount exec last in page once, but can not check in logging');
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({isLoding:false});
+    }, 3000);
+    this.getData();
   }
   render() {
-    console.log('render exec 2nd, and every functioning');
+    const { isLoding, movies } = this.state;
+    // return <div>{this.state.isLoding &&= console.log("ok")}</div>;
+    // return <div>{if(this.state.isLoding)console.log("ok")}</div>;
+    // return <div>{this.state.isLoding?'loding true':'loading false'}</div>;
+    // return <div>{isLoding ? "loading" : "complete"}</div>;
     return (
       <div>
-        <h1>the number is :{this.state.count - 1}</h1>
-        <button onClick={this.add}>ADD</button>
-        <button onClick={this.minus}>MINUS</button>
+        {isLoding
+          ? "loading"
+          : 
+          movies.map(
+              (movie) => (
+                // {
+                // console.log(movie);
+                // return (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                />
+              )
+              // );
+              // }
+            )
+          }
       </div>
     );
   }

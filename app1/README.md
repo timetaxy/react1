@@ -55,10 +55,23 @@ https://reactjs.org/docs/react-component.html#gatsby-focus-wrapper
 4.componentDidUpdate console.log('componentDidUpdate not exec 3rd, but every functioning after render')
 5.componentWillUnmount   console.log('componentWillUnmount exec last in page once, but can not check in logging');
 
+https://yts.mx/api
+chrome ext json viewer add
+https://github.com/serranoarevalo/yts-proxy
+    계속 api 변하므로
+
+npm i axios --save
+
+Movies.js
+state 불필요 경우, class 불필요. 단지 function
 
 
 
 
+
+
+
+--- 추가 시청
 익스텐션
 https://youtu.be/YjcqH027H2g
 
