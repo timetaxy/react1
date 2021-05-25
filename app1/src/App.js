@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Movie from "./Movies";
+// import css from "./App.css";
 
 class App extends React.Component {
   state = {
@@ -23,8 +24,8 @@ class App extends React.Component {
   };
   componentDidMount() {
     setTimeout(() => {
-      this.setState({isLoding:false});
-    }, 3000);
+      this.setState({ isLoding: false });
+    }, 1000);
     this.getData();
   }
   render() {
@@ -34,29 +35,35 @@ class App extends React.Component {
     // return <div>{this.state.isLoding?'loding true':'loading false'}</div>;
     // return <div>{isLoding ? "loading" : "complete"}</div>;
     return (
-      <div>
-        {isLoding
-          ? "loading"
-          : 
-          movies.map(
-              (movie) => (
-                // {
-                // console.log(movie);
-                // return (
-                <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  year={movie.year}
-                  title={movie.title}
-                  summary={movie.summary}
-                  poster={movie.medium_cover_image}
-                />
-              )
-              // );
-              // }
+        //class 도 가능, 하지만 컴파일 오류 가능
+      <section className="container">
+        {isLoding ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+          <div className="movies">
+          {movies.map(
+            (movie) => (
+              // {
+              // console.log(movie);
+              // return (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+              />
             )
-          }
-      </div>
+            // );
+            // }
+          )}
+          </div>
+        )}
+      </section>
     );
   }
 }

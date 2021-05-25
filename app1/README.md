@@ -65,7 +65,11 @@ npm i axios --save
 Movies.js
 state 불필요 경우, class 불필요. 단지 function
 
+https://dribbble.com/
 
+https://medium.com/@minimap.net/%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%8B%9C-%EC%9C%A0%EC%9A%A9%ED%95%9C-%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-a19bad86055a
+
+css import만해도 적용됨
 
 
 
