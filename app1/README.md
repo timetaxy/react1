@@ -71,6 +71,19 @@ https://medium.com/@minimap.net/%EC%9B%B9%EA%B0%9C%EB%B0%9C%EC%8B%9C-%EC%9C%A0%E
 
 css import만해도 적용됨
 
+-- cloud upload
+npm i gh-pages
+	깃허브 무료 static 웹사이트
+[id].github.io/[repo name]
+모두 소문자
+package.json > homepage 필드추가
+npm run build
+	minimize 됨
+predeploy 스크립트 : 디플로이 스크립트 실행시 미리 실행 됨
+npm run build 시 생성 디렉토리와 gh-pages -d 인자 일치
+
+
+
 
 
 
