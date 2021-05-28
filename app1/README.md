@@ -46,7 +46,7 @@ https://reactjs.org/docs/typechecking-with-proptypes.html
 react는 classcomponent. render method 자동 실행
 setState로만 값변경, render()가 재실행되어야 하므로, setState를 통해 연동 됨
     setState 때마다 render 재실행
-
+w
 https://reactjs.org/docs/react-component.html#gatsby-focus-wrapper
 컴포넌트 라이프싸이클
 1.constructor console.log('constructor exec 1st in page once');
@@ -81,11 +81,13 @@ npm run build
 	minimize 됨
 predeploy 스크립트 : 디플로이 스크립트 실행시 미리 실행 됨
 npm run build 시 생성 디렉토리와 gh-pages -d 인자 일치
+state 갖기 위해 class component 가질 필요 없음
+	리액트 훅으로 대체 할 수도 있음
 
+네비게이션 react-router-dome
+라우터는 url 오버랩하여 로딩 됨, 단일 페이지만 로딩시 exact={true}
 
-
-
-
+https://nomadcoders.co/react-fundamentals/lectures/1568
 
 
 --- 추가 시청
